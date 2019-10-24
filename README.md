@@ -1,2 +1,2 @@
 # PathFinding
-Path Finding Solvers in Python 
+Path Finding Solvers in Python 3
