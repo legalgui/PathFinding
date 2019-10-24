@@ -1,4 +1,6 @@
-""" Module that implements a Node and its Board for uninformed search
+""" Module that implements a Node and its Board for uninformed search, as well
+    as a Priority Queue for an ordered insertion of nodes depending their
+    state
 
     The exported classes include a Board that serves as a reference for
     an 8 piece puzzle, using a Node to build an uninformed search tree
