@@ -102,7 +102,7 @@ class Board(object):
         """ Swaps two matrix values
 
             Arguments:
-                actopn: A string defining a direction for action
+                action: A string defining a direction for action
         """
         current_state = copy.deepcopy(self.current_node.state)
         row, col = helper.index_2d(0, current_state)
