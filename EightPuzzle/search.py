@@ -60,8 +60,8 @@ def breadth_first_search(board, nodes, route_queue, initial_state, final_state):
     while nodes:
         board.current_node = nodes.pop(0)
         board.define_actions_current_node()
-        node_actions = len(board.current_node.actions)
-        for i in range(0, node_actions):
+        number_of_actions = len(board.current_node.actions)
+        for i in range(0, number_of_actions):
             new_node = board.create_child_current_node()
             if not board.visited(new_node):
                 if not board.is_goal(new_node):
@@ -108,3 +108,50 @@ def uninformed_search(initial_state, final_state, algorithm):
 
     else:
         print("Error")
+
+
+def a_star_search(initial_state, final_state, heuristic):
+    """ Implements the a star search
+
+        Arguments:
+            initial_state: A list of lists describing the initial state
+            final_state: A list of lists describing the final state
+            heuristic: Integer for heuristic selection
+    """
+    if heuristic != 0 and heuristic != 1:
+        print("Wrong Option")
+        exit()
+
+    if heuristic:
+        print("MANHATTAN DISTANCE HEURISTIC")
+    else:
+        print("ORDERED PIECES HEURISTIC")
+        
+    source_node = environment.Node(None, initial_state, "IGNORE")
+    goal_node = environment.Node(None, final_state, "IGNORE")
+
+    board = environment.Board(source_node, goal_node)
+    node_list = environment.PriorityQueue()
+    node_list.enqueue(source_node)
+    route_queue = []
+
+    while node_list:
+        board.current_node = node_list.dequeue()
+        board.define_actions_current_node()
+        number_of_actions = len(board.current_node.actions)
+        for i in range(0, number_of_actions):
+            new_node = board.create_child_current_node()
+            if not board.visited(new_node):
+                if not board.is_goal(new_node):
+                    new_node.update_search_values(heuristic, goal_node.state)
+                    node_list.enqueue(new_node)
+                else:
+                    while new_node.parent != None:
+                        route_queue.append(new_node.arrival_action)
+                        new_node = new_node.parent
+
+                    route_queue.reverse()
+                    if test.test(initial_state, final_state, route_queue):
+                        return route_queue
+                    return []
+    return []
