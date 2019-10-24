@@ -14,6 +14,8 @@ def depth_first_search(board, nodes, route_queue, initial_state, final_state):
             route_queue: A list of actions that describes the route
             initial_state: A list of lists describing the initial state
             final_state: A list of lists describing the final state
+        Returns:
+            route_queue: A list of strings with each step of the route
     """
     while nodes:
         board.current_node = nodes[-1]
@@ -56,6 +58,8 @@ def breadth_first_search(board, nodes, route_queue, initial_state, final_state):
             route_queue: A list of actions that describes the route
             initial_state: A list of lists describing the initial state
             final_state: A list of lists describing the final state
+        Returns:
+            route_queue: A list of strings with each step of the route
     """
     while nodes:
         board.current_node = nodes.pop(0)
@@ -84,6 +88,8 @@ def uninformed_search(initial_state, final_state, algorithm):
             initial_state: A list of lists describing the initial state
             final_state: A list of lists describing the final state
             algorithm: Integer for algorithm selection
+        Returns:
+            route_queue: A list of strings with each step of the route
     """
     if algorithm != 0 and algorithm != 1:
         print("Wrong Option")
@@ -117,6 +123,8 @@ def a_star_search(initial_state, final_state, heuristic):
             initial_state: A list of lists describing the initial state
             final_state: A list of lists describing the final state
             heuristic: Integer for heuristic selection
+        Returns:
+            route_queue: A list of strings with each step of the route
     """
     if heuristic != 0 and heuristic != 1:
         print("Wrong Option")
@@ -126,7 +134,7 @@ def a_star_search(initial_state, final_state, heuristic):
         print("MANHATTAN DISTANCE HEURISTIC")
     else:
         print("ORDERED PIECES HEURISTIC")
-        
+
     source_node = environment.Node(None, initial_state, "IGNORE")
     goal_node = environment.Node(None, final_state, "IGNORE")
 
