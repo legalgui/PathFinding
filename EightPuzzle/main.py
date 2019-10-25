@@ -6,7 +6,7 @@ from __future__ import print_function
 import search
 
 def run():
-    """ Function that runs the uninformed search
+    """ Function that runs the uninformed search and the A star search
     """
     initial_state = [[0, 1, 2], [4, 5, 3], [7, 8, 6]]
     final_state = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
