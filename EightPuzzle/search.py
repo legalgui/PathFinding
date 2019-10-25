@@ -9,7 +9,7 @@ def depth_first_search(board, nodes, route_queue, initial_state, final_state):
     """ Implements the depth first search algorithm
 
         Arguments:
-            board: A board object that abstracts the 8 piece puzzle
+            board: A board object that abstracts the 15 piece puzzle
             nodes: A Node objects list specifying each game step
             route_queue: A list of actions that describes the route
             initial_state: A list of lists describing the initial state
@@ -53,7 +53,7 @@ def breadth_first_search(board, nodes, route_queue, initial_state, final_state):
     """ Implements the breadth first search algorithm
 
         Arguments:
-            board: A board object that abstracts the 8 piece puzzle
+            board: A board object that abstracts the 15 piece puzzle
             nodes: A Node objects list specifying each game step
             route_queue: A list of actions that describes the route
             initial_state: A list of lists describing the initial state

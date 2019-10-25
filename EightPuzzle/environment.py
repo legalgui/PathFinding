@@ -3,7 +3,7 @@
     state
 
     The exported classes include a Board that serves as a reference for
-    an 8 piece puzzle, using a Node to build an uninformed search tree
+    an 15 piece puzzle, using a Node to build an uninformed search tree
     and traverse through its action space.
 """
 from __future__ import print_function
@@ -135,7 +135,7 @@ class Node(object):
         self.weight = self.cost + self.heuristic
 
 class Board(object):
-    """ Class Board that abstracts the 8 piece puzzle
+    """ Class Board that abstracts the 15 piece puzzle
 
         Attributes:
             source_node: A node that specifies the origin
